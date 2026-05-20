@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "works": "Werken",
+    "about": "Over",
+    "inquire": "Contact",
+    "close": "Menu sluiten"
+  },
+  "home": {
+    "eyebrow": "Den Haag · Nederland",
+    "heroSubtitle": "سبز — Groen · Groei · Lichtgeving",
+    "heroStatement": "Schilderijen die de taal van aarde en goud spreken — waar impasto geologie wordt en metaalblad pigment in licht omzet.",
+    "viewPortfolio": "Bekijk Portfolio",
+    "collectorInquiries": "Verzamelaarscontact",
+    "yearsActive": "Jaar actief",
+    "originalWorks": "Originele werken",
+    "basedIn": "Gevestigd in Den Haag",
+    "statementLabel": "Kunstenaarsverklaring",
+    "statementQuote": "Mijn doeken zijn geologische lagen — lagen van herinnering, mineraal pigment en gouden licht samengeperst in één moment van stilte. Ik werk met het eigen vocabulaire van de aarde: geoxideerde pigmenten, hars, textuurpasta en het eeuwenoude luxe van metaalblad. Elk schilderij is een onderhandeling tussen chaos en stilte.",
+    "statementAuthor": "Somaye Khani · Den Haag, 2024",
+    "selectedWorks": "Geselecteerde",
+    "worksAccent": "Werken",
+    "fullPortfolio": "Volledig Portfolio"
+  },
+  "works": {
+    "title": "Werken",
+    "all": "Alle",
+    "available": "Beschikbaar",
+    "filterBy": "Filteren op serie",
+    "viewWork": "Bekijk werk",
+    "availableTag": "Beschikbaar",
+    "soldTag": "Verkocht"
+  },
+  "workDetail": {
+    "medium": "Medium",
+    "dimensions": "Afmetingen",
+    "year": "Jaar",
+    "series": "Serie",
+    "availability": "Beschikbaarheid",
+    "available": "Beschikbaar voor aankoop",
+    "sold": "Verkocht — Privécollectie",
+    "inquireAbout": "Informeer over dit werk",
+    "relatedWorks": "Gerelateerde Werken",
+    "backToWorks": "Terug naar Werken"
+  },
+  "about": {
+    "eyebrow": "De Kunstenaar",
+    "name": "Somaye Khani",
+    "location": "Den Haag, Nederland",
+    "bioTitle": "Biografie",
+    "bio1": "Somaye Khani is een schilder, architect en onderzoeker gevestigd in Den Haag. Zij promoveerde in Islamitische Architectuur aan de Tabriz Islamic Art University (2020) en vervulde een bezoekend onderzoeksfellowship aan de Universitat Politècnica de Catalunya (UPC) in Barcelona. Haar academisch werk — over stedelijk landschapstheorie, wetenschapsfilosofie en islamitische ruimtelijke traditie — voedt direct haar praktijk als schilder.",
+    "bio2": "Als medeoprichter van Khakoob, een startup die stampaardetechnologie ontwikkelt, bezit Khani vier internationale patenten geregistreerd bij het USPTO. Deze duurzame betrokkenheid bij ruwe aarde als bouwmateriaal — haar compressie, textuur en geologische gelaagdheid — is de directe bron van de impastotaal die haar schilderijen definieert.",
+    "bio3": "Haar schilderspraktijk, actief sinds 2006, is erkend in internationale tentoonstellingen in Toronto, Barcelona en Teheran. Ze werd geselecteerd voor de Satin Annual Visual Arts Exhibition in Farhangestane Saba en is prijswinnaar van de permanente tentoonstelling The Passion to Perform in Toronto.",
+    "statementTitle": "Kunstenaarsverklaring",
+    "statement": "Ik begin elk doek met één vraag: wat wil dit oppervlak worden? Ik schets niet en plan niet — ik reageer. Een handvol mineraal pigment, een strook goudblad diagonaal gescheurd, de sleep van een paletmes door natte hars. Het beeld ontstaat door onderhandeling in plaats van richting. Dit is wat schilderkunst deelt met architectuur — beide zijn daden van het bewoonbaar maken van ruimte, beide zijn onderhandelingen tussen het materiële en het immateriële.",
+    "exhibitionsTitle": "Tentoonstellingsgeschiedenis",
+    "solo": "Solo",
+    "group": "Groep",
+    "fair": "Prijs",
+    "downloadCV": "CV Downloaden"
+  },
+  "inquire": {
+    "eyebrow": "Galerie & Verzamelaarscontact",
+    "title": "Verwerf een",
+    "titleAccent": "SABZE werk",
+    "body": "Of u nu een galerie vertegenwoordigt, een privécollectie opbouwt of een locatiespecifiek werk wilt opdragen — serieuze aanvragen zijn welkom. Elk werk wordt verkocht met volledige herkomstdocumentatie en een ondertekend echtheidscertificaat.",
+    "name": "Uw naam",
+    "email": "E-mailadres",
+    "institution": "Galerie of instelling (optioneel)",
+    "workInterest": "Werk van interesse (optioneel)",
+    "message": "Uw bericht — type aanvraag, tijdlijn, collectiecontext...",
+    "send": "Aanvraag Verzenden",
+    "sending": "Verzenden...",
+    "successTitle": "Aanvraag ontvangen",
+    "successBody": "Dank u. Het atelier zal binnen 3–5 werkdagen reageren.",
+    "openFor": "Open voor",
+    "openForItems": "Opdrachten · Galerie-exposities · Kunstbeurzen · Particuliere Verkoop",
+    "studioLabel": "Atelier",
+    "studioLocation": "Den Haag, Nederland",
+    "emailLabel": "E-mail",
+    "errors": {
+      "nameRequired": "Voer uw naam in",
+      "emailInvalid": "Voer een geldig e-mailadres in",
+      "messageRequired": "Beschrijf uw aanvraag"
+    }
+  },
+  "footer": {
+    "rights": "Alle rechten voorbehouden",
+    "instagram": "Instagram",
+    "artsy": "Artsy",
+    "linkedin": "LinkedIn"
+  }
+}

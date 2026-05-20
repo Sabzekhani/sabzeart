@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "works": "Obras",
+    "about": "Artista",
+    "inquire": "Contacto",
+    "close": "Cerrar menú"
+  },
+  "home": {
+    "eyebrow": "La Haya · Países Bajos",
+    "heroSubtitle": "سبز — Verde · Crecimiento · Luminiscencia",
+    "heroStatement": "Pinturas que hablan el lenguaje de la tierra y el oro — donde el impasto se convierte en geología y la hoja metálica transforma el pigmento en luz.",
+    "viewPortfolio": "Ver Portfolio",
+    "collectorInquiries": "Consultas de Coleccionistas",
+    "yearsActive": "Años de práctica",
+    "originalWorks": "Obras originales",
+    "basedIn": "Con sede en La Haya",
+    "statementLabel": "Declaración del Artista",
+    "statementQuote": "Mis lienzos son estratos geológicos — capas de memoria, pigmento mineral y luz dorada comprimidas en un único momento de quietud. Trabajo con el propio vocabulario de la tierra: pigmentos oxidados, resina, pasta de textura y el antiguo lujo de la hoja metálica.",
+    "statementAuthor": "Somaye Khani · La Haya, 2024",
+    "selectedWorks": "Obras",
+    "worksAccent": "Seleccionadas",
+    "fullPortfolio": "Portfolio Completo"
+  },
+  "works": {
+    "title": "Obras",
+    "all": "Todas",
+    "available": "Disponible",
+    "filterBy": "Filtrar por serie",
+    "viewWork": "Ver obra",
+    "availableTag": "Disponible",
+    "soldTag": "Vendida"
+  },
+  "workDetail": {
+    "medium": "Técnica",
+    "dimensions": "Dimensiones",
+    "year": "Año",
+    "series": "Serie",
+    "availability": "Disponibilidad",
+    "available": "Disponible para adquisición",
+    "sold": "Vendida — Colección Privada",
+    "inquireAbout": "Consultar sobre esta obra",
+    "relatedWorks": "Obras Relacionadas",
+    "backToWorks": "Volver a Obras"
+  },
+  "about": {
+    "eyebrow": "La Artista",
+    "name": "Somaye Khani",
+    "location": "La Haya, Países Bajos",
+    "bioTitle": "Biografía",
+    "bio1": "Somaye Khani es pintora, arquitecta e investigadora con sede en La Haya. Doctora en Arquitectura Islámica por la Universidad de Arte Islámico de Tabriz (2020), realizó una estancia de investigación en la Universitat Politècnica de Catalunya (UPC) en Barcelona. Su trabajo académico — sobre teoría del paisaje urbano, filosofía de la ciencia y tradición espacial islámica — alimenta directamente su práctica pictórica.",
+    "bio2": "Como cofundadora de Khakoob, una startup que desarrolla tecnología de construcción con tierra apisonada, Khani posee cuatro patentes internacionales registradas en la USPTO. Este compromiso sostenido con la tierra cruda como material de construcción — su compresión, textura y estratificación geológica — es la fuente directa del lenguaje de impasto que define sus pinturas.",
+    "bio3": "Su práctica pictórica, activa desde 2006, ha sido reconocida en exposiciones internacionales en Toronto, Barcelona y Teherán. Fue seleccionada para la Exposición Anual de Artes Visuales Satin en Farhangestane Saba y es premiada en la exposición permanente The Passion to Perform en Toronto.",
+    "statementTitle": "Declaración del Artista",
+    "statement": "Comienzo cada lienzo con una sola pregunta: ¿en qué quiere convertirse esta superficie? No esbozo ni planifico — respondo. Un puñado de pigmento mineral, una tira de hoja de oro rasgada, el arrastre de una espátula sobre resina húmeda. La imagen emerge a través de la negociación, no de la dirección. Esto es lo que la pintura comparte con la arquitectura — ambas son actos de hacer habitable el espacio, ambas son negociaciones entre lo material y lo inmaterial, lo visto y lo sentido.",
+    "exhibitionsTitle": "Historial de Exposiciones",
+    "solo": "Individual",
+    "group": "Colectiva",
+    "fair": "Premio",
+    "downloadCV": "Descargar CV"
+  },
+  "inquire": {
+    "eyebrow": "Consultas de Galerías y Coleccionistas",
+    "title": "Adquirir una",
+    "titleAccent": "obra de SABZE",
+    "body": "Ya sea que represente una galería, esté construyendo una colección privada o desee encargar una obra específica — las consultas serias son bienvenidas. Cada obra se vende con documentación de procedencia completa y certificado de autenticidad firmado.",
+    "name": "Su nombre",
+    "email": "Dirección de correo electrónico",
+    "institution": "Galería o institución (opcional)",
+    "workInterest": "Obra de interés (opcional)",
+    "message": "Su mensaje — tipo de consulta, cronología, contexto de colección...",
+    "send": "Enviar Consulta",
+    "sending": "Enviando...",
+    "successTitle": "Consulta recibida",
+    "successBody": "Gracias. El estudio responderá en un plazo de 3 a 5 días hábiles.",
+    "openFor": "Abierto para",
+    "openForItems": "Encargos · Exposiciones en Galerías · Ferias de Arte · Ventas Privadas",
+    "studioLabel": "Estudio",
+    "studioLocation": "La Haya, Países Bajos",
+    "emailLabel": "Correo electrónico",
+    "errors": {
+      "nameRequired": "Por favor ingrese su nombre",
+      "emailInvalid": "Por favor ingrese un correo electrónico válido",
+      "messageRequired": "Por favor describa su consulta"
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "instagram": "Instagram",
+    "artsy": "Artsy",
+    "linkedin": "LinkedIn"
+  }
+}

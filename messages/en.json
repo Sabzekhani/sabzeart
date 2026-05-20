@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "works": "Works",
+    "about": "About",
+    "inquire": "Inquire",
+    "close": "Close menu"
+  },
+  "home": {
+    "eyebrow": "The Hague · Netherlands",
+    "heroSubtitle": "سبز — Green · Growth · Luminescence",
+    "heroStatement": "Paintings that speak the language of earth and gold — where impasto becomes geology, and metallic leaf transforms pigment into light.",
+    "viewPortfolio": "View Portfolio",
+    "collectorInquiries": "Collector Inquiries",
+    "yearsActive": "Years active",
+    "originalWorks": "Original works",
+    "basedIn": "Based in The Hague",
+    "statementLabel": "Artist's Statement",
+    "statementQuote": "My canvases are geological strata — layers of memory, mineral pigment, and golden light compressed into a single moment of stillness. I work with the earth's own vocabulary: oxidised pigments, resin, texture paste, and the ancient luxury of metallic leaf. Each painting is a negotiation between chaos and silence, between the gesture and the void.",
+    "statementAuthor": "Somaye Khani · The Hague, 2024",
+    "selectedWorks": "Selected",
+    "worksAccent": "Works",
+    "fullPortfolio": "Full Portfolio"
+  },
+  "works": {
+    "title": "Works",
+    "all": "All",
+    "available": "Available",
+    "filterBy": "Filter by series",
+    "viewWork": "View work",
+    "availableTag": "Available",
+    "soldTag": "Sold"
+  },
+  "workDetail": {
+    "medium": "Medium",
+    "dimensions": "Dimensions",
+    "year": "Year",
+    "series": "Series",
+    "availability": "Availability",
+    "available": "Available for acquisition",
+    "sold": "Sold — Private Collection",
+    "inquireAbout": "Inquire about this work",
+    "relatedWorks": "Related Works",
+    "backToWorks": "Back to Works"
+  },
+  "about": {
+    "eyebrow": "The Artist",
+    "name": "Somaye Khani",
+    "location": "The Hague, Netherlands",
+    "bioTitle": "Biography",
+    "bio1": "Somaye Khani is a painter, architect and researcher based in The Hague. She holds a PhD in Islamic Architecture from Tabriz Islamic Art University (2020) and completed a visiting research fellowship at the Universitat Politècnica de Catalunya (UPC) in Barcelona. Her academic work — spanning urban landscape theory, philosophy of science, and Islamic spatial tradition — feeds directly into her practice as a painter, giving her work an unusual depth of material and conceptual intelligence.",
+    "bio2": "As the co-founder of Khakoob, a startup developing rammed earth construction technology, Khani holds four international patents registered with the USPTO and two national patents. This sustained engagement with raw earth as a building material — its compression, texture, and geological layering — is the direct source of the impasto language that defines her paintings. The canvas becomes a site of the same forces: weight, pressure, time, and the irruption of light through dense matter.",
+    "bio3": "Her painting practice, active since 2006, has been recognised in international exhibitions in Toronto, Barcelona, and Tehran. She was selected for the Satin Annual Visual Arts Exhibition at Farhangestane Saba and is a prize-winner in the permanent exhibition The Passion to Perform in Toronto. Commissions are accepted for site-specific works and large-format pieces.",
+    "statementTitle": "Artist's Statement",
+    "statement": "I begin every canvas with a single question: what does this surface want to become? I do not sketch or plan — I respond. A handful of mineral pigment, a length of gold leaf torn at an angle, the drag of a palette knife through wet resin. The image emerges through negotiation rather than direction. My recurring subjects — the horizon, the root system, the figure dissolving into its background — are not chosen but found, the way a geologist finds a vein of ore by following the rock's own logic. The metallic leaf is not decoration. It is a vocabulary of interruption: a seam of something ancient and irreducible breaking through the earth's surface. This is what painting shares with architecture — both are acts of making space habitable, both are negotiations between the material and the immaterial, the seen and the felt.",
+    "exhibitionsTitle": "Exhibition History",
+    "solo": "Solo",
+    "group": "Group",
+    "fair": "Award",
+    "downloadCV": "Download CV"
+  },
+  "inquire": {
+    "eyebrow": "Gallery & Collector Inquiries",
+    "title": "Acquire a",
+    "titleAccent": "SABZE work",
+    "body": "Whether you represent a gallery, are building a private collection, or wish to commission a site-specific work — serious inquiries are welcomed. Each work is sold with full provenance documentation and a signed certificate of authenticity.",
+    "name": "Your name",
+    "email": "Email address",
+    "institution": "Gallery or institution (optional)",
+    "workInterest": "Work of interest (optional)",
+    "message": "Your message — inquiry type, timeline, collection context...",
+    "send": "Send Inquiry",
+    "sending": "Sending...",
+    "successTitle": "Inquiry received",
+    "successBody": "Thank you. The studio will respond within 3–5 working days.",
+    "openFor": "Open for",
+    "openForItems": "Commissions · Gallery Exhibitions · Art Fairs · Private Sales",
+    "studioLabel": "Studio",
+    "studioLocation": "The Hague, Netherlands",
+    "emailLabel": "Email",
+    "errors": {
+      "nameRequired": "Please enter your name",
+      "emailInvalid": "Please enter a valid email address",
+      "messageRequired": "Please describe your inquiry"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "instagram": "Instagram",
+    "artsy": "Artsy",
+    "linkedin": "LinkedIn"
+  }
+}
