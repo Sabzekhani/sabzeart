@@ -18,6 +18,7 @@
 
   --font-cormorant: 'Cormorant Garamond', Georgia, serif;
   --font-jost:      'Jost', system-ui, sans-serif;
+  --font-persian:   'Vazirmatn', 'Tahoma', sans-serif;
 
   --spacing-section: 6rem;
   --spacing-gutter:  3.5rem;
@@ -163,4 +164,12 @@ body { background: var(--color-sabze-cream); color: var(--color-sabze-ink); font
 /* Nav transparent hero overlap fix */
 @media (max-width: 768px) {
   nav { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+}
+
+/* Phone layout: keep header/footer within the viewport (QR visitors land on phones) */
+@media (max-width: 768px) {
+  header nav, header .btn-outline-gold { display: none !important; }
+  footer > div:first-child { grid-template-columns: 1fr !important; justify-items: center; text-align: center; padding: 2rem 1.25rem !important; }
+  footer nav, footer > div:first-child > div { justify-content: center !important; flex-wrap: wrap; }
+  footer > div:last-child { flex-direction: column; gap: 0.5rem; align-items: center; padding: 1rem 1.25rem !important; }
 }
