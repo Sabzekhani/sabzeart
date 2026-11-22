@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Separate app (poetry/QR site), linted from its own folder
+    "poems/**",
   ]),
 ]);
 

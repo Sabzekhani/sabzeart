@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import type { Poem, PoemKeyTerm } from '@/types'
+import type { Poem, PoemKeyTerm } from '@/lib/types'
 import { qrDataUrl, qrSvg, downloadBlob, renderCard } from './qr'
 
 interface Props {
@@ -31,7 +31,7 @@ const box: React.CSSProperties = {
   fontFamily: 'var(--font-jost)',
   fontSize: '0.95rem',
   fontWeight: 300,
-  color: 'var(--color-sabze-ink)',
+  color: 'var(--c-ink)',
   lineHeight: 1.7,
   outline: 'none',
 }
@@ -41,9 +41,9 @@ const persianBox: React.CSSProperties = { ...box, fontFamily: 'var(--font-persia
 function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
     <label style={{ display: 'block', marginBottom: '1.25rem' }}>
-      <span style={{ display: 'block', fontFamily: 'var(--font-persian)', fontSize: '0.85rem', color: 'var(--color-sabze-ink-soft)', marginBottom: '0.4rem' }}>
+      <span style={{ display: 'block', fontFamily: 'var(--font-persian)', fontSize: '0.85rem', color: 'var(--c-ink-soft)', marginBottom: '0.4rem' }}>
         {label}
-        {hint && <span style={{ color: 'var(--color-sabze-stone)', fontSize: '0.75rem', marginInlineStart: '0.5rem' }}>{hint}</span>}
+        {hint && <span style={{ color: 'var(--c-stone)', fontSize: '0.75rem', marginInlineStart: '0.5rem' }}>{hint}</span>}
       </span>
       {children}
     </label>
@@ -54,7 +54,8 @@ function slugify(s: string) {
   return s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60)
 }
 
-export default function PoemStudio({ existing, siteUrl }: Props) {
+export default function PoemStudio({ existing, siteUrl: configuredUrl }: Props) {
+  const siteUrl = configuredUrl || (typeof window !== 'undefined' ? window.location.origin : '')
   const [password, setPassword] = useState(() => {
     if (typeof window === 'undefined') return ''
     try {
@@ -72,7 +73,7 @@ export default function PoemStudio({ existing, siteUrl }: Props) {
   const [fallbackJson, setFallbackJson] = useState<string | null>(null)
   const [qr, setQr] = useState<{ url: string; dataUrl: string } | null>(null)
 
-  const url = draft.slug ? `${siteUrl}/nl/poem/${draft.slug}` : ''
+  const url = draft.slug ? `${siteUrl}/p/${draft.slug}` : ''
 
   useEffect(() => {
     if (url) qrDataUrl(url, 360).then((dataUrl) => setQr({ url, dataUrl }))
@@ -95,7 +96,7 @@ export default function PoemStudio({ existing, siteUrl }: Props) {
     setFallbackJson(null)
     setBusy('translate')
     try {
-      const res = await fetch('/api/poems/translate', {
+      const res = await fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password, persian, poet: poetHint || undefined, notes: notes || undefined }),
@@ -135,7 +136,7 @@ export default function PoemStudio({ existing, siteUrl }: Props) {
     setBusy('publish')
     const poem = buildPoem()
     try {
-      const res = await fetch('/api/poems/publish', {
+      const res = await fetch('/api/publish', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password, poem }),
@@ -143,7 +144,7 @@ export default function PoemStudio({ existing, siteUrl }: Props) {
       const data = await res.json()
       if (res.status === 501) {
         setFallbackJson(JSON.stringify(poem, null, 2))
-        setMessage({ kind: 'error', text: 'انتشار خودکار تنظیم نشده است (GITHUB_TOKEN). متن JSON زیر را به فایل data/poems.json اضافه کنید.' })
+        setMessage({ kind: 'error', text: 'انتشار خودکار تنظیم نشده است (GITHUB_TOKEN). متن JSON زیر را به فایل poems/data/poems.json اضافه کنید.' })
         return
       }
       if (!res.ok) throw new Error(data.error ?? 'Fout')
@@ -156,15 +157,15 @@ export default function PoemStudio({ existing, siteUrl }: Props) {
   }
 
   async function downloadPng(slug: string) {
-    const dataUrl = await qrDataUrl(`${siteUrl}/nl/poem/${slug}`, 1200)
+    const dataUrl = await qrDataUrl(`${siteUrl}/p/${slug}`, 1200)
     downloadBlob(await (await fetch(dataUrl)).blob(), `qr-${slug}.png`)
   }
   async function downloadSvg(slug: string) {
-    const svg = await qrSvg(`${siteUrl}/nl/poem/${slug}`)
+    const svg = await qrSvg(`${siteUrl}/p/${slug}`)
     downloadBlob(new Blob([svg], { type: 'image/svg+xml' }), `qr-${slug}.svg`)
   }
   async function downloadCard(p: { slug: string; persian: string; poet: string }) {
-    const blob = await renderCard({ url: `${siteUrl}/nl/poem/${p.slug}`, persian: p.persian, poet: p.poet })
+    const blob = await renderCard({ url: `${siteUrl}/p/${p.slug}`, persian: p.persian, poet: p.poet })
     downloadBlob(blob, `kaart-${p.slug}.png`)
   }
 
@@ -172,10 +173,10 @@ export default function PoemStudio({ existing, siteUrl }: Props) {
   const canPublish = !!password && !!persian.trim() && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(draft.slug) && !!draft.translation.trim() && !!draft.explanation.trim() && !busy
 
   return (
-    <div dir="rtl" style={{ paddingTop: '6.5rem', paddingBottom: '5rem' }}>
+    <div dir="rtl" style={{ paddingTop: '2.5rem', paddingBottom: '5rem' }}>
       <div style={{ maxWidth: 1080, margin: '0 auto', padding: '0 1.25rem' }}>
         <h1 style={{ fontFamily: 'var(--font-persian)', fontWeight: 300, fontSize: '1.8rem', marginBottom: '0.5rem' }}>استودیوی شعر و QR</h1>
-        <p style={{ fontFamily: 'var(--font-persian)', fontSize: '0.9rem', color: 'var(--color-sabze-stone)', marginBottom: '2rem' }}>
+        <p style={{ fontFamily: 'var(--font-persian)', fontSize: '0.9rem', color: 'var(--c-stone)', marginBottom: '2rem' }}>
           شعر یا جملهٔ فارسی را وارد کنید، ترجمه و تفسیر هلندی را بازبینی کنید، سپس QR کد را برای چاپ دانلود کنید.
         </p>
 
@@ -199,7 +200,7 @@ export default function PoemStudio({ existing, siteUrl }: Props) {
             </button>
 
             {message && (
-              <p style={{ marginTop: '1.25rem', padding: '0.75rem 1rem', fontFamily: 'var(--font-persian)', fontSize: '0.85rem', lineHeight: 1.8, background: message.kind === 'ok' ? 'var(--color-sabze-sage-pale)' : '#F6E3DA', color: message.kind === 'ok' ? 'var(--color-sabze-sage)' : 'var(--color-sabze-rust)' }}>
+              <p style={{ marginTop: '1.25rem', padding: '0.75rem 1rem', fontFamily: 'var(--font-persian)', fontSize: '0.85rem', lineHeight: 1.8, background: message.kind === 'ok' ? 'var(--c-sage-pale)' : '#F6E3DA', color: message.kind === 'ok' ? 'var(--c-sage)' : 'var(--c-rust)' }}>
                 {message.text}
               </p>
             )}
@@ -260,7 +261,7 @@ export default function PoemStudio({ existing, siteUrl }: Props) {
               <>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={qrPreview} alt="QR" width={240} height={240} style={{ margin: '0 auto', display: 'block' }} />
-                <p dir="ltr" style={{ fontSize: '0.7rem', color: 'var(--color-sabze-stone)', wordBreak: 'break-all', margin: '0.75rem 0 1.25rem' }}>{url}</p>
+                <p dir="ltr" style={{ fontSize: '0.7rem', color: 'var(--c-stone)', wordBreak: 'break-all', margin: '0.75rem 0 1.25rem' }}>{url}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center' }}>
                   <button className="btn-outline-gold" onClick={() => downloadPng(draft.slug)}>PNG</button>
                   <button className="btn-outline-gold" onClick={() => downloadSvg(draft.slug)}>SVG</button>
@@ -268,7 +269,7 @@ export default function PoemStudio({ existing, siteUrl }: Props) {
                 </div>
               </>
             ) : (
-              <p style={{ fontFamily: 'var(--font-persian)', fontSize: '0.8rem', color: 'var(--color-sabze-stone)', padding: '4rem 0' }}>پس از ساخت پیش‌نویس، QR کد اینجا نمایش داده می‌شود.</p>
+              <p style={{ fontFamily: 'var(--font-persian)', fontSize: '0.8rem', color: 'var(--c-stone)', padding: '4rem 0' }}>پس از ساخت پیش‌نویس، QR کد اینجا نمایش داده می‌شود.</p>
             )}
           </aside>
         </div>
@@ -282,7 +283,7 @@ export default function PoemStudio({ existing, siteUrl }: Props) {
                 <div key={p.slug} style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', justifyContent: 'space-between', background: '#fff', padding: '1rem', border: '1px solid rgba(196,184,173,0.4)' }}>
                   <div>
                     <p style={{ fontFamily: 'var(--font-persian)', fontSize: '1rem' }}>{p.persian.split('\n')[0]}</p>
-                    <a dir="ltr" href={`/nl/poem/${p.slug}`} target="_blank" rel="noreferrer" style={{ fontSize: '0.7rem', color: 'var(--color-sabze-stone)' }}>/nl/poem/{p.slug}</a>
+                    <a dir="ltr" href={`/p/${p.slug}`} target="_blank" rel="noreferrer" style={{ fontSize: '0.7rem', color: 'var(--c-stone)' }}>/p/{p.slug}</a>
                   </div>
                   <div style={{ display: 'flex', gap: '0.5rem' }}>
                     <button className="btn-outline-gold" onClick={() => downloadPng(p.slug)}>PNG</button>

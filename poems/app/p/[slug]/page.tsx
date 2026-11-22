@@ -2,45 +2,23 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { poems, getPoemBySlug } from '@/lib/poems'
-import FadeIn from '@/components/ui/FadeIn'
 
 export const dynamicParams = false
 
-const labels: Record<string, Record<string, string>> = {
-  nl: {
-    eyebrow: 'Perzische poëzie',
-    translation: 'Vertaling',
-    transliteration: 'Uitspraak',
-    explanation: 'Toelichting',
-    keyTerms: 'Sleutelwoorden',
-    note: 'Vertaling en toelichting bij een werk van SABZE.',
-    more: 'Bekijk de werken',
-  },
-  en: {
-    eyebrow: 'Persian poetry',
-    translation: 'Translation (Dutch)',
-    transliteration: 'Pronunciation',
-    explanation: 'Explanation (Dutch)',
-    keyTerms: 'Key words',
-    note: 'Translation and commentary accompanying a work by SABZE.',
-    more: 'View the works',
-  },
-  es: {
-    eyebrow: 'Poesía persa',
-    translation: 'Traducción (neerlandés)',
-    transliteration: 'Pronunciación',
-    explanation: 'Comentario (neerlandés)',
-    keyTerms: 'Palabras clave',
-    note: 'Traducción y comentario que acompañan una obra de SABZE.',
-    more: 'Ver las obras',
-  },
+const t = {
+  eyebrow: 'Perzische poëzie',
+  translation: 'Vertaling',
+  transliteration: 'Uitspraak',
+  explanation: 'Toelichting',
+  keyTerms: 'Sleutelwoorden',
+  more: 'Alle gedichten',
 }
 
 export function generateStaticParams() {
   return poems.map((p) => ({ slug: p.slug }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const poem = getPoemBySlug(slug)
   if (!poem) return {}
@@ -63,17 +41,16 @@ function Paragraphs({ text, style }: { text: string; style?: React.CSSProperties
   )
 }
 
-export default async function PoemPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
-  const { locale, slug } = await params
+export default async function PoemPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const poem = getPoemBySlug(slug)
   if (!poem) notFound()
-  const t = labels[locale] ?? labels.nl
   const { nl } = poem
 
   return (
-    <article lang="nl" style={{ paddingTop: '6.5rem', paddingBottom: '5rem' }}>
+    <article lang="nl" style={{ paddingTop: '2.5rem', paddingBottom: '5rem' }}>
       <div style={{ maxWidth: 680, margin: '0 auto', padding: '0 1.25rem' }}>
-        <FadeIn>
+        <div>
           <p className="eyebrow" style={{ marginBottom: '2.5rem' }}>{t.eyebrow}</p>
 
           <blockquote
@@ -84,7 +61,7 @@ export default async function PoemPage({ params }: { params: Promise<{ locale: s
               fontSize: 'clamp(1.35rem, 5vw, 1.9rem)',
               fontWeight: 300,
               lineHeight: 2.1,
-              color: 'var(--color-sabze-ink)',
+              color: 'var(--c-ink)',
               textAlign: 'center',
               whiteSpace: 'pre-line',
               margin: 0,
@@ -94,15 +71,15 @@ export default async function PoemPage({ params }: { params: Promise<{ locale: s
           </blockquote>
 
           <p style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-            <span style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.15rem', fontStyle: 'italic', color: 'var(--color-sabze-stone)' }}>
+            <span style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.15rem', fontStyle: 'italic', color: 'var(--c-stone)' }}>
               {poem.poet}{poem.source ? ` · ${poem.source}` : ''}
             </span>
           </p>
 
           <span className="gold-rule" style={{ margin: '2.5rem auto' }} />
-        </FadeIn>
+        </div>
 
-        <FadeIn delay={100}>
+        <div>
           <section style={{ marginBottom: '2.75rem' }}>
             <h2 className="ui-label" style={sectionLabel}>{t.translation}</h2>
             <p
@@ -112,7 +89,7 @@ export default async function PoemPage({ params }: { params: Promise<{ locale: s
                 fontWeight: 400,
                 fontStyle: 'italic',
                 lineHeight: 1.55,
-                color: 'var(--color-sabze-ink)',
+                color: 'var(--c-ink)',
                 whiteSpace: 'pre-line',
               }}
             >
@@ -123,17 +100,17 @@ export default async function PoemPage({ params }: { params: Promise<{ locale: s
           {nl.transliteration && (
             <section style={{ marginBottom: '2.75rem' }}>
               <h2 className="ui-label" style={sectionLabel}>{t.transliteration}</h2>
-              <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.15rem', fontWeight: 400, lineHeight: 1.7, color: 'var(--color-sabze-ink-soft)', whiteSpace: 'pre-line' }}>
+              <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.15rem', fontWeight: 400, lineHeight: 1.7, color: 'var(--c-ink-soft)', whiteSpace: 'pre-line' }}>
                 {nl.transliteration}
               </p>
             </section>
           )}
-        </FadeIn>
+        </div>
 
-        <FadeIn delay={150}>
+        <div>
           <section style={{ marginBottom: '2.75rem' }}>
             <h2 className="ui-label" style={sectionLabel}>{t.explanation}</h2>
-            <div className="body-serif" style={{ fontSize: '1.15rem', color: 'var(--color-sabze-ink-soft)' }}>
+            <div className="body-serif" style={{ fontSize: '1.15rem', color: 'var(--c-ink-soft)' }}>
               <Paragraphs text={nl.explanation} />
             </div>
           </section>
@@ -143,20 +120,19 @@ export default async function PoemPage({ params }: { params: Promise<{ locale: s
               <h2 className="ui-label" style={sectionLabel}>{t.keyTerms}</h2>
               <dl style={{ display: 'grid', gap: '1rem' }}>
                 {nl.keyTerms.map(({ term, meaning }) => (
-                  <div key={term} style={{ borderLeft: '1px solid var(--color-sabze-gold)', paddingLeft: '1rem' }}>
-                    <dt style={{ fontFamily: 'var(--font-persian)', fontSize: '1.05rem', color: 'var(--color-sabze-ink)', marginBottom: '0.2rem' }}>{term}</dt>
-                    <dd style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.08rem', color: 'var(--color-sabze-stone)', lineHeight: 1.5 }}>{meaning}</dd>
+                  <div key={term} style={{ borderLeft: '1px solid var(--c-gold)', paddingLeft: '1rem' }}>
+                    <dt style={{ fontFamily: 'var(--font-persian)', fontSize: '1.05rem', color: 'var(--c-ink)', marginBottom: '0.2rem' }}>{term}</dt>
+                    <dd style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.08rem', color: 'var(--c-stone)', lineHeight: 1.5 }}>{meaning}</dd>
                   </div>
                 ))}
               </dl>
             </section>
           )}
 
-          <footer style={{ borderTop: '1px solid rgba(201,168,76,0.25)', paddingTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span className="ui-label" style={{ textTransform: 'none', letterSpacing: '0.05em', fontSize: '0.75rem' }}>{t.note}</span>
-            <Link href={`/${locale}/works`} className="btn-ghost">{t.more}</Link>
+          <footer style={{ borderTop: '1px solid rgba(201,168,76,0.25)', paddingTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'flex-start', alignItems: 'center' }}>
+            <Link href="/" className="btn-ghost">← {t.more}</Link>
           </footer>
-        </FadeIn>
+        </div>
       </div>
     </article>
   )

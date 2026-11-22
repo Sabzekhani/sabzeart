@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { poems, SITE_URL } from '@/lib/poems'
-import PoemStudio from '@/components/studio/PoemStudio'
+import PoemStudio from '@/components/PoemStudio'
 
 export const metadata: Metadata = {
   title: 'Studio — QR',

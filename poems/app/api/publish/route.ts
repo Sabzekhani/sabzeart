@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { isStudioAuthorized } from '@/lib/studio-auth'
-import type { Poem } from '@/types'
+import type { Poem } from '@/lib/types'
 
 const poemSchema = z.object({
   slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Slug: alleen kleine letters, cijfers en streepjes').max(80),
@@ -19,7 +19,8 @@ const poemSchema = z.object({
 
 const requestSchema = z.object({ password: z.string(), poem: poemSchema })
 
-const FILE_PATH = 'data/poems.json'
+// Path of the poems file inside the GitHub repository
+const FILE_PATH = process.env.GITHUB_FILE_PATH ?? 'poems/data/poems.json'
 
 /** Adds or replaces a poem in data/poems.json on GitHub. Vercel redeploys on the commit. */
 export async function POST(req: NextRequest) {
